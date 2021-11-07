@@ -48,30 +48,100 @@ class _FirstPageState extends State<FirstPage> {
                   children: [
                     Column(
                       children: [
-                        Container(
-                          child: Center(
-                            child: Column(
-                              children: const [
-                                Text('Online Objective Exam', style: TextStyle(
-                                  fontWeight: FontWeight.bold
-                                ),),
-                                Text('Quicker to create'),
-                                Text('Easier to attend'),
-                              ],
+                        Padding(
+                          padding: const EdgeInsets.only(top:50, bottom: 20, left: 30, right: 30),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.green),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(
+                              child: Column(
+                                children: const [
+                                  Text('Online Objective Exam', style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30
+                                  ),),
+                                  Text('Quicker to create',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),),
+                                  Text('Easier to attend',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                        Container(
-                          child: ElevatedButton(
-                              onPressed: () {
-                              },
-                              child: Row(
-                                children: const [
-                                  Text('Contact us'),
-                                  Icon(Icons.phone),
-                                  Icon(Icons.alternate_email_rounded),
-                                ],
-                              ),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width/5,
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          //insetPadding: const EdgeInsets.only(top: 200, bottom: 300),
+                                          title: const Text('Contact Us!'),
+                                          content: Builder(
+                                            builder: (context) {
+                                              var height = MediaQuery.of(context).size.height;
+                                              var width = MediaQuery.of(context).size.width;
+                                              return SizedBox(
+                                                height: height-600,
+                                                width: width-700,
+                                                child: Column(
+                                                  children: [
+                                                    Row(
+                                                      children: const [
+                                                        Text('Phone number',style: TextStyle(
+                                                          color: Colors.grey,
+                                                        ),),
+                                                        SizedBox(width: 10),
+                                                        Text('+60 1-300-80-0668',style: TextStyle(
+                                                          color: Colors.red,
+                                                        ),)
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      children: const [
+                                                        Text('Email Address', style: TextStyle(
+                                                          color: Colors.grey,
+                                                        ),),
+                                                        SizedBox(width: 10),
+                                                        Text('connect@mmu.edu.my',style: TextStyle(
+                                                          color: Colors.red,
+                                                        ),)
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          ),
+                                          actions: <Widget>[
+                                            TextButton(
+                                              child: const Text("Close"),
+                                              onPressed: () => Navigator.pop(context),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: const [
+                                    Text('Contact us'),
+                                    Icon(Icons.phone),
+                                    Icon(Icons.alternate_email_rounded),
+                                  ],
+                                ),
+                            ),
                           ),
                         ),
                       ],
@@ -106,75 +176,6 @@ class _FirstPageState extends State<FirstPage> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget button() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          color: Colors.lightGreen,
-          height: 40,
-          width: 150,
-          child: OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              primary: Colors.black,
-            ),
-            onPressed: () {},
-            child: const Text(
-              'Home',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-          ),
-        ),
-        Container(
-          color: Colors.lightGreen,
-          height: 40,
-          width: 150,
-          child: OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              primary: Colors.black,
-            ),
-            onPressed: () {},
-            child: const Text(
-              'About',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-          ),
-        ),
-        Container(
-          color: Colors.lightGreen,
-          height: 40,
-          width: 150,
-          child: OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              primary: Colors.black,
-            ),
-            onPressed: () {},
-            child: const Text(
-              'Registration',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-          ),
-        ),
-        Container(
-          color: Colors.lightGreen,
-          height: 40,
-          width: 150,
-          child: OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              primary: Colors.black,
-            ),
-            onPressed: () {},
-            child: const Text(
-              'LogIn',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
