@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sef/screen/admin_login_page.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({Key? key}) : super(key: key);
@@ -146,27 +147,119 @@ class _FirstPageState extends State<FirstPage> {
                         ),
                       ],
                     ),
-                    Container(
-                      color: Colors.pink,
-                      child: const Center(
-                        child: Text(
-                          'Car',
+                    Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height/3,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.rectangle,
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: AssetImage('assets/laptop.jpg'),
+                              )
+                            ),
+                          ),
                         ),
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.7,
+                          height: MediaQuery.of(context).size.height*0.3,
+                          color: Colors.deepPurpleAccent,
+                          child: const Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Text('MCQ is an Online Objective Exam System,\n'
+                                'it is intended to help the lectures to set exams\n'
+                                'which are "Multiple Choice Question".\n'
+                                'And for the students to attend exams\n'
+                                'in a more manageable way.',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 28,
+                                color: Colors.white,
+                              ),),
+                          ),
+                        )
+                      ],
+                    ),
+                    Container(
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width/4,
+                              height: MediaQuery.of(context).size.height/7,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: const Text('Lecture \n'
+                                    'Registration',
+                                style: TextStyle(
+                                  fontSize: 25,
+                                ),),
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width/4,
+                              height: MediaQuery.of(context).size.height/7,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: const Text('Student \n'
+                                    'Registration',
+                                style: TextStyle(
+                                  fontSize: 25,
+                                ),),
+                              ),
+                            ),
+                          ],
+                        )
                       ),
                     ),
                     Container(
-                      color: Colors.pink,
-                      child: const Center(
-                        child: Text(
-                          'Car',
-                        ),
-                      ),
-                    ),
-                    Container(
-                      color: Colors.pink,
-                      child: const Center(
-                        child: Text(
-                          'Car',
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width/6,
+                              height: MediaQuery.of(context).size.height/9,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => AdminLoginPage()));
+                                },
+                                child: const Text('Admin \n'
+                                    'Login',
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),),
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width/6,
+                              height: MediaQuery.of(context).size.height/9,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: const Text('Lecture \n'
+                                    'Login',
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),),
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width/6,
+                              height: MediaQuery.of(context).size.height/9,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: const Text('Student \n'
+                                    'Login',
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
