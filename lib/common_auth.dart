@@ -8,16 +8,15 @@ Widget commonTextFormField({
   return Container(
     padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
     child: TextFormField(
-      obscureText: true,
       validator: validator,
       controller: textEditingController,
       style: const TextStyle(
-        color: Colors.white,
+        color: Colors.black,
       ),
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: const TextStyle(
-          color: Colors.white70,
+          color: Colors.black,
         ),
         enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
