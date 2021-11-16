@@ -230,7 +230,7 @@ class _FirstPageState extends State<FirstPage> {
                               height: MediaQuery.of(context).size.height/9,
                               child: ElevatedButton(
                                 onPressed: () {
-                                  //Navigator.push(context, MaterialPageRoute(builder: (context) => AdminLoginPage()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => AdminLoginPage()));
                                 },
                                 child: const Text('Admin \n'
                                     'Login',
