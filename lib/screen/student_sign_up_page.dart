@@ -5,20 +5,21 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sef/global/reg_exp.dart';
 import 'package:sef/screen/lecture_login_page.dart';
+import 'package:sef/screen/student_login_page.dart';
 
 import '../common_auth.dart';
 
-class LectureSignUpPage extends StatefulWidget {
-  const LectureSignUpPage({Key? key}) : super(key: key);
+class StudentSignUpPage extends StatefulWidget {
+  const StudentSignUpPage({Key? key}) : super(key: key);
 
   @override
-  _LectureSignUpPageState createState() => _LectureSignUpPageState();
+  _StudentSignUpPageState createState() => _StudentSignUpPageState();
 }
 
-class _LectureSignUpPageState extends State<LectureSignUpPage> {
+class _StudentSignUpPageState extends State<StudentSignUpPage> {
   final GlobalKey<FormState> _signUpKey = GlobalKey();
   final TextEditingController email = TextEditingController();
-  final TextEditingController lectureId = TextEditingController();
+  final TextEditingController studentId = TextEditingController();
   final TextEditingController name = TextEditingController();
   final TextEditingController number = TextEditingController();
   final TextEditingController address = TextEditingController();
@@ -29,7 +30,7 @@ class _LectureSignUpPageState extends State<LectureSignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lecture Registration'),
+        title: const Text('Student Registration'),
       ),
       backgroundColor: Colors.white,
       body: Container(
@@ -52,7 +53,7 @@ class _LectureSignUpPageState extends State<LectureSignUpPage> {
                         }
                         return null;
                       },
-                      textEditingController: lectureId,
+                      textEditingController: studentId,
                     ),
                     commonTextFormField(
                       hintText: 'Enter your Name',
@@ -120,7 +121,7 @@ class _LectureSignUpPageState extends State<LectureSignUpPage> {
                       },
                       textEditingController: address,
                     ),
-                    signUpAuthButton(context, 'Register'),
+                    studentSignUpAuthButton(context, 'Register'),
                   ],
                 ),
               ),
@@ -130,8 +131,7 @@ class _LectureSignUpPageState extends State<LectureSignUpPage> {
       ),
     );
   }
-
-  Widget signUpAuthButton(BuildContext context, String buttonName) {
+  Widget studentSignUpAuthButton(BuildContext context, String buttonName) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 25),
       child: ElevatedButton(
@@ -153,10 +153,10 @@ class _LectureSignUpPageState extends State<LectureSignUpPage> {
           if (_signUpKey.currentState!.validate()) {
             print('validated');
 
-            FirebaseFirestore.instance.collection('lectures')
+            FirebaseFirestore.instance.collection('students')
                 .add({
               'address': address.text,
-              'id': lectureId.text,
+              'id': studentId.text,
               'email': email.text,
               'name': name.text,
               'number': number.text,
@@ -167,7 +167,7 @@ class _LectureSignUpPageState extends State<LectureSignUpPage> {
                 .signUpAuth(
                 email: email.text, password: password.text);
             if (response == EmailSignResults.SignUpCompleted) {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => LectureLoginPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (_) => StudentLogInPage()));
             } else {
               final String message =
               response == EmailSignResults.EmailAlreadyPresent

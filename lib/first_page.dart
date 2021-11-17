@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sef/screen/admin_login_page.dart';
 import 'package:sef/screen/lecture_login_page.dart';
 import 'package:sef/screen/lecture_sign_up_page.dart';
+import 'package:sef/screen/student_login_page.dart';
+import 'package:sef/screen/student_sign_up_page.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({Key? key}) : super(key: key);
@@ -208,7 +210,9 @@ class _FirstPageState extends State<FirstPage> {
                               width: MediaQuery.of(context).size.width/4,
                               height: MediaQuery.of(context).size.height/7,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => StudentSignUpPage()));
+                                },
                                 child: const Text('Student \n'
                                     'Registration',
                                 style: TextStyle(
@@ -257,7 +261,9 @@ class _FirstPageState extends State<FirstPage> {
                               width: MediaQuery.of(context).size.width/6,
                               height: MediaQuery.of(context).size.height/9,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => StudentLogInPage()));
+                                },
                                 child: const Text('Student \n'
                                     'Login',
                                   style: TextStyle(
