@@ -49,7 +49,7 @@ class AdminStudentListPage extends StatelessWidget {
         stream: FirebaseFirestore.instance.collection('students').snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
           return ListView(
             children: snapshot.data!.docs.map((DocumentSnapshot document) {
