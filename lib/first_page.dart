@@ -19,12 +19,6 @@ class _FirstPageState extends State<FirstPage> {
     const Tab(text: 'Registration'),
     const Tab(text: 'LogIn'),
   ];
-  final List<Widget> _contents = [
-    const Center(child: Icon(Icons.directions_car)),
-    const Center(child: Icon(Icons.directions_bike)),
-    const Center(child: Icon(Icons.directions_boat)),
-    const Center(child: Icon(Icons.directions_boat)),
-  ];
 
   @override
   Widget build(BuildContext context) {

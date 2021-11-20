@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sef/screen/student_profile.dart';
+import 'package:sef/screen/student_sign_out.dart';
+import 'package:sef/screen/student_sign_up_page.dart';
 
 class StudentMain extends StatefulWidget {
   const StudentMain({Key? key}) : super(key: key);
@@ -81,7 +83,9 @@ class _StudentMainState extends State<StudentMain> {
                   style: TextButton.styleFrom(
                     minimumSize: Size(200, 80),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => StudentSignOut()));
+                  },
                   child: Row(
                     children: const [
                       Icon(Icons.logout),
